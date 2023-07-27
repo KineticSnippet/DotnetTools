@@ -7,6 +7,7 @@ import { NugetStack } from "./TreeItems/NugetStack";
 import { NugetPackage } from "./TreeItems/NugetPackage";
 import { DotnetProject } from "./TreeItems/DotnetProject";
 import { logger } from "../../extension";
+import { extension } from "../../GlobalConst";
 
 export class DotnetProjectsProvider
     implements
@@ -126,7 +127,7 @@ export class DotnetProjectsProvider
                             path.basename(project.fsPath, ".csproj"),
                             vscode.TreeItemCollapsibleState.Collapsed,
                             {
-                                command: "sharp-tools.openProject",
+                                command: `${extension.id}.openProject`,
                                 title: "Open project",
                                 arguments: [project],
                             },
