@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import * as fs from "fs";
 import * as path from "path";
-import { logger } from "../../extension";
+import { logger } from "../extension";
 
 export class NodeDependenciesProvider
     implements vscode.TreeDataProvider<Dependency>

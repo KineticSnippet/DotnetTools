@@ -13,3 +13,13 @@ export const regex = {
     localPaths: /Include="([^"]+)"/g,
     itemGroupRegex: /<ItemGroup>([\s\S]*?)<\/ItemGroup>/g,
 };
+
+/**
+ * GlobalConst: Description of the constant.
+ * Use this file to define constant values used throughout your project.
+ */
+
+export const extension = {
+    id: `dotnet-tools`,
+    name: `.NET Tools`,
+};

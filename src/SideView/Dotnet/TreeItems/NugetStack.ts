@@ -1,13 +1,13 @@
-import path from "path";
 import * as vscode from "vscode";
+import * as path from "path";
 /**
- * DotnetProject
+ * NugetPackageProvider
  */
-export class DotnetProject extends vscode.TreeItem {
+export class NugetStack extends vscode.TreeItem {
     constructor(
         public override readonly label: string,
+        public readonly version: string,
         public override readonly collapsibleState: vscode.TreeItemCollapsibleState,
-        public override readonly command: vscode.Command,
         public readonly project: vscode.Uri
     ) {
         super(label, collapsibleState);
@@ -20,10 +20,9 @@ export class DotnetProject extends vscode.TreeItem {
             "..",
             "..",
             "..",
-            "..",
             "Resources",
             "Icons",
-            "Project.png"
+            "NugetStack.png"
         ),
         dark: path.join(
             __filename,
@@ -32,11 +31,10 @@ export class DotnetProject extends vscode.TreeItem {
             "..",
             "..",
             "..",
-            "..",
             "Resources",
             "Icons",
-            "Project.png"
+            "NugetStack.png"
         ),
     };
-    override contextValue = "dotnetProject";
+    override contextValue = "nugetStack";
 }

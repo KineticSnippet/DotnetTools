@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { DotnetManager } from "../../ProjectManager/ProjectManager";
+import { DotnetManager } from "../ProjectManager/ProjectManager";
 /**
  * Defines the UserInteractions class.
  * Show messages, confirmations, errors to the user and get user input.
@@ -98,7 +98,10 @@ export class UserInteractions {
         });
         return uriMap;
     }
-    static async selectAVersion(versions: string[]) {
+    static async selectAVersion(
+        versions: string[],
+    )
+    {
         let selectedVersion = await vscode.window.showQuickPick(versions, {
             placeHolder: `Select a version to install`,
             canPickMany: false,

@@ -1,11 +1,11 @@
 import { Uri } from "vscode";
 import * as vscode from "vscode";
-import { logger, terminal } from "../../extension";
 import { UserInteractions } from "../UserInteraction/UserInteractions";
-import { fileExtensions, regex } from "../Basics/GlobalConst";
+import { fileExtensions, regex } from "../GlobalConst";
 import path from "path";
 import axios from "axios";
 import { NugetPackage } from "../SideView/Dotnet/TreeItems/NugetPackage";
+import { logger, terminal } from "../extension";
 
 /**
  * ProjectManager class is responsible for managing dotnet projects

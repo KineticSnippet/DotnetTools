@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { logger } from "../../extension";
+import { logger } from "../extension";
 import { extension } from "../GlobalConst";
 /**
  * TerminalManager class

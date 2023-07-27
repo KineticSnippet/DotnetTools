@@ -1,14 +1,14 @@
 {
-    "name": "dotnet-shield",
-    "displayName": ".NET Shield",
+    "name": "dotnet-tools",
+    "displayName": ".NET Tools",
     "publisher": "kineticSnippet",
-    "description": "Tool-box",
+    "description": "Dotnet tools for dotnet developers",
     "version": "0.1.1",
     "keywords": [
         "C#",
         "dotnet"
     ],
-    "icon": "Resources/Light/thunder.png",
+    "icon": "Resources/Icons/Thunder.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/kineticSnippet/dotnetShield"
@@ -25,7 +25,7 @@
         "onLanguage:fsharp"
     ],
     "author": {
-        "name": "fercho",
+        "name": "Fercho",
         "email": "kineticSnippet@outlook.com",
         "url": "https://github.com/kineticSnippet"
     },
@@ -33,38 +33,38 @@
     "contributes": {
         "commands": [
             {
-                "command": "dotnet-shield.manageReferences",
+                "command": "dotnet-tools.manageReferences",
                 "title": "Manage References",
-                "category": "Sharp Tools"
+                "category": "Dotnet Tools"
             },
             {
-                "command": "dotnet-shield.buildProject",
-                "category": "Sharp Tools",
+                "command": "dotnet-tools.buildProject",
+                "category": "Dotnet Tools",
                 "title": "Build Project"
             },
             {
-                "command": "dotnet-shield.runProject",
-                "category": "Sharp Tools",
+                "command": "dotnet-tools.runProject",
+                "category": "Dotnet Tools",
                 "title": "Run Project"
             },
             {
-                "command": "dotnet-shield.watchAndRunProject",
-                "category": "Sharp Tools",
+                "command": "dotnet-tools.watchAndRunProject",
+                "category": "Dotnet Tools",
                 "title": "Watch Run Project"
             },
             {
-                "command": "dotnet-shield.restoreProject",
-                "category": "Sharp Tools",
+                "command": "dotnet-tools.restoreProject",
+                "category": "Dotnet Tools",
                 "title": "Restore Project"
             },
             {
-                "command": "dotnet-shield.openProject",
-                "category": "Sharp Tools",
+                "command": "dotnet-tools.openProject",
+                "category": "Dotnet Tools",
                 "title": "Open Project"
             },
             {
-                "command": "dotnet-shield.refreshDotnetTreeView",
-                "category": "Sharp Tools",
+                "command": "dotnet-tools.refreshDotnetTreeView",
+                "category": "Dotnet Tools",
                 "title": "Refresh Nuget Packages",
                 "icon": {
                     "light": "resources/light/refresh.png",
@@ -72,127 +72,127 @@
                 }
             },
             {
-                "command": "dotnet-shield.addNugetPackage",
-                "category": "Sharp Tools",
+                "command": "dotnet-tools.addNugetPackage",
+                "category": "Dotnet Tools",
                 "title": "Add Nuget Package"
             },
             {
-                "command": "dotnet-shield.removeNugetPackage",
-                "category": "Sharp Tools",
+                "command": "dotnet-tools.removeNugetPackage",
+                "category": "Dotnet Tools",
                 "title": "Remove Nuget Package"
             }
         ],
         "menus": {
             "explorer/context": [
                 {
-                    "submenu": "dotnet-shield",
-                    "group": ".dotnet-shield",
+                    "submenu": "dotnet-tools",
+                    "group": ".dotnet-tools",
                     "when": "resourceExtname == .csproj || resourceExtname == .fsproj"
                 }
             ],
             "editor/context": [
                 {
-                    "submenu": "dotnet-shield",
-                    "group": ".dotnet-shield",
+                    "submenu": "dotnet-tools",
+                    "group": ".dotnet-tools",
                     "when": "resourceExtname == .csproj || resourceExtname == .fsproj"
                 }
             ],
             "view/item/context": [
                 {
-                    "command": "dotnet-shield.addNugetPackage",
+                    "command": "dotnet-tools.addNugetPackage",
                     "group": "nugetPackages",
-                    "when": "view == dotnet-shield.dotnetProjects && viewItem == nugetStack || viewItem == dotnetProject"
+                    "when": "view == dotnet-tools.dotnetProjects && viewItem == nugetStack || viewItem == dotnetProject"
                 },
                 {
-                    "command": "dotnet-shield.removeNugetPackage",
+                    "command": "dotnet-tools.removeNugetPackage",
                     "group": "nugetPackages",
-                    "when": "view == dotnet-shield.dotnetProjects && viewItem == nugetPackage || viewItem == nugetStack || viewItem == dotnetProject"
+                    "when": "view == dotnet-tools.dotnetProjects && viewItem == nugetPackage || viewItem == nugetStack || viewItem == dotnetProject"
                 },
                 {
-                    "command": "dotnet-shield.manageReferences",
-                    "when": "view == dotnet-shield.dotnetProjects && viewItem == dotnetProject || viewItem == projectStack",
+                    "command": "dotnet-tools.manageReferences",
+                    "when": "view == dotnet-tools.dotnetProjects && viewItem == dotnetProject || viewItem == projectStack",
                     "group": "references"
                 },
                 {
-                    "command": "dotnet-shield.buildProject",
-                    "when": "view == dotnet-shield.dotnetProjects && viewItem == dotnetProject",
+                    "command": "dotnet-tools.buildProject",
+                    "when": "view == dotnet-tools.dotnetProjects && viewItem == dotnetProject",
                     "group": "build actions"
                 },
                 {
-                    "command": "dotnet-shield.runProject",
-                    "when": "view == dotnet-shield.dotnetProjects && viewItem == dotnetProject",
+                    "command": "dotnet-tools.runProject",
+                    "when": "view == dotnet-tools.dotnetProjects && viewItem == dotnetProject",
                     "group": "build actions"
                 },
                 {
-                    "command": "dotnet-shield.watchAndRunProject",
-                    "when": "view == dotnet-shield.dotnetProjects && viewItem == dotnetProject",
+                    "command": "dotnet-tools.watchAndRunProject",
+                    "when": "view == dotnet-tools.dotnetProjects && viewItem == dotnetProject",
                     "group": "build actions"
                 },
                 {
-                    "command": "dotnet-shield.openProject",
-                    "when": "view == dotnet-shield.dotnetProjects && viewItem == dotnetProject",
+                    "command": "dotnet-tools.openProject",
+                    "when": "view == dotnet-tools.dotnetProjects && viewItem == dotnetProject",
                     "group": "other actions"
                 }
             ],
-            "dotnet-shield": [
+            "dotnet-tools": [
                 {
-                    "command": "dotnet-shield.manageReferences",
+                    "command": "dotnet-tools.manageReferences",
                     "group": "references"
                 },
                 {
-                    "command": "dotnet-shield.buildProject",
+                    "command": "dotnet-tools.buildProject",
                     "group": "build actions"
                 },
                 {
-                    "command": "dotnet-shield.runProject",
+                    "command": "dotnet-tools.runProject",
                     "group": "build actions"
                 },
                 {
-                    "command": "dotnet-shield.watchAndRunProject",
+                    "command": "dotnet-tools.watchAndRunProject",
                     "group": "build actions"
                 },
                 {
-                    "command": "dotnet-shield.restoreProject",
+                    "command": "dotnet-tools.restoreProject",
                     "group": "build actions"
                 }
             ],
             "view/title": [
                 {
-                    "command": "dotnet-shield.refreshDotnetTreeView",
-                    "when": "view == dotnet-shield.dotnetProjects",
+                    "command": "dotnet-tools.refreshDotnetTreeView",
+                    "when": "view == dotnet-tools.dotnetProjects",
                     "group": "navigation"
                 }
             ]
         },
         "viewsWelcome": [
             {
-                "view": "dotnet-shield.dotnetProjects",
+                "view": "dotnet-tools.dotnetProjects",
                 "contents": "Welcome to the Nuget Packages View!\nNo C# or F# project was found in the workspace.\n\nTo get started, open a folder or workspace that contains a C# or F# project. Or create a new one.\n[Open Folder](command:workbench.action.files.openFolder) \n "
             }
         ],
         "submenus": [
             {
-                "id": "dotnet-shield",
-                "label": "Sharp Tools"
+                "id": "dotnet-tools",
+                "label": "Dotnet Tools"
             }
         ],
         "viewsContainers": {
             "activitybar": [
                 {
-                    "id": "dotnet-shield",
-                    "title": "Sharp Tools",
-                    "icon": "resources/light/thunder.png"
+                    "id": "dotnet-tools",
+                    "title": "Dotnet Tools",
+                    "icon": "Resources/Icons/thunder.png"
                 }
             ]
         },
         "views": {
-            "dotnet-shield": [
+            "dotnet-tools": [
                 {
-                    "id": "dotnet-shield.dotnetProjects",
+                    "id": "dotnet-tools.dotnetProjects",
                     "name": "Dotnet Projects"
                 },
                 {
-                    "id": "dotnet-shield.nodeDependencies",
+                    "id": "dotnet-tools.nodeDependencies",
                     "name": "Node Dependencies"
                 }
             ]

@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
-import { Logger } from "./Modules/Basics/Logger";
-import { TerminalManager } from "./Modules/Basics/TerminalManager";
-import { registerDotnetCommands as registerDotnetCommands } from "./Modules/Basics/CommandDotnet";
+import { Logger } from "./Logger/Logger";
+import { TerminalManager } from "./TerminalManager/TerminalManager";
+import { registerDotnetCommands } from "./Commands/CommandDotnet";
 
 export let logger = new Logger();
 export let terminal = new TerminalManager();

@@ -1,12 +1,12 @@
 import * as vscode from "vscode";
 // import * as fs from "fs";
 import * as path from "path";
-import { NugetStack } from "../../../SideView/Dotnet/TreeItems/NugetStack";
-import { ProjectStack } from "../../../SideView/Dotnet/TreeItems/ProjectStack";
-import { NugetPackage } from "../../../SideView/Dotnet/TreeItems/NugetPackage";
-import { DotnetProject } from "../../../SideView/Dotnet/TreeItems/DotnetProject";
-import { DotnetManager } from "../../../ProjectManager/ProjectManager";
-import { logger } from "../../../extension";
+import { DotnetManager } from "../../ProjectManager/ProjectManager";
+import { ProjectStack } from "./TreeItems/ProjectStack";
+import { NugetStack } from "./TreeItems/NugetStack";
+import { NugetPackage } from "./TreeItems/NugetPackage";
+import { DotnetProject } from "./TreeItems/DotnetProject";
+import { logger } from "../../extension";
 
 export class DotnetProjectsProvider
     implements

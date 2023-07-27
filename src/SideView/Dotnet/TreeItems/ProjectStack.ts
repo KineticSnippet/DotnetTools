@@ -19,14 +19,12 @@ export class ProjectStack extends vscode.TreeItem {
             "..",
             "..",
             "..",
-            "..",
             "Resources",
             "Icons",
             "ProjectStack.png"
         ),
         dark: path.join(
             __filename,
-            "..",
             "..",
             "..",
             "..",

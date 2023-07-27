@@ -1,12 +1,12 @@
 import * as vscode from "vscode";
-import { extension } from "../../GlobalConst";
-import { logger } from "../../extension";
-import { DotnetManager } from "../../ProjectManager/ProjectManager";
-import { DotnetProjectsProvider } from "../../SideView/Dotnet/DotnetProjectsProvider";
-import { DotnetProject } from "../../SideView/Dotnet/TreeItems/DotnetProject";
-import { NugetPackage } from "../../SideView/Dotnet/TreeItems/NugetPackage";
-import { NugetStack } from "../../SideView/Dotnet/TreeItems/NugetStack";
-import { ProjectStack } from "../../SideView/Dotnet/TreeItems/ProjectStack";
+import { DotnetManager } from "../ProjectManager/ProjectManager";
+import { DotnetProjectsProvider } from "../SideView/Dotnet/DotnetProjectsProvider";
+import { NugetStack } from "../SideView/Dotnet/TreeItems/NugetStack";
+import { NugetPackage } from "../SideView/Dotnet/TreeItems/NugetPackage";
+import { DotnetProject } from "../SideView/Dotnet/TreeItems/DotnetProject";
+import { ProjectStack } from "../SideView/Dotnet/TreeItems/ProjectStack";
+import { extension } from "../GlobalConst";
+import { logger } from "../extension";
 
 /**
  * CommandDotnet: Description of the function.

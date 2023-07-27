@@ -1,17 +1,22 @@
 import * as vscode from "vscode";
 import * as path from "path";
+import { Version } from "../../../ProjectManager/INuget";
 /**
- * NugetPackageProvider
+ * NugetPackage
  */
-export class NugetStack extends vscode.TreeItem {
+export class NugetPackage extends vscode.TreeItem {
     constructor(
-        public override readonly label: string,
-        public readonly version: string,
+        public override readonly label: string, // id
+        public readonly version: string, // local version
         public override readonly collapsibleState: vscode.TreeItemCollapsibleState,
-        public readonly project: vscode.Uri
+        public readonly project: vscode.Uri,
+        public override readonly description: string, // description
+        public readonly versions: Version[],
+        public readonly authors: string[]
     ) {
         super(label, collapsibleState);
     }
+
     override iconPath = {
         light: path.join(
             __filename,
@@ -20,10 +25,9 @@ export class NugetStack extends vscode.TreeItem {
             "..",
             "..",
             "..",
-            "..",
             "Resources",
             "Icons",
-            "NugetStack.png"
+            "Nuget.png"
         ),
         dark: path.join(
             __filename,
@@ -32,11 +36,10 @@ export class NugetStack extends vscode.TreeItem {
             "..",
             "..",
             "..",
-            "..",
             "Resources",
             "Icons",
-            "NugetStack.png"
+            "Nuget.png"
         ),
     };
-    override contextValue = "nugetStack";
+    override contextValue = "nugetPackage";
 }
