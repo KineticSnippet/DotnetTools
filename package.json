@@ -13,6 +13,7 @@
         "type": "git",
         "url": "https://github.com/kineticSnippet/dotnetShield"
     },
+    "license": "private",
     "engines": {
         "vscode": "^1.80.0"
     },
