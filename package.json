@@ -3,7 +3,7 @@
     "displayName": ".NET Tools",
     "publisher": "kineticSnippet",
     "description": "Dotnet tools for dotnet developers",
-    "version": "0.1.1",
+    "version": "1.0.0",
     "keywords": [
         "C#",
         "dotnet"
@@ -11,7 +11,7 @@
     "icon": "Resources/Icons/Thunder.png",
     "repository": {
         "type": "git",
-        "url": "https://github.com/kineticSnippet/dotnetShield"
+        "url": "https://github.com/kineticSnippet/DotnetTools"
     },
     "license": "private",
     "engines": {
@@ -26,7 +26,7 @@
         "onLanguage:fsharp"
     ],
     "author": {
-        "name": "Fercho",
+        "name": "kineticSnippet",
         "email": "kineticSnippet@outlook.com",
         "url": "https://github.com/kineticSnippet"
     },

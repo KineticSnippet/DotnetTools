@@ -8,7 +8,7 @@ This tool helps you to:
 - Add/remove nuget packages
 - Build/restore/run your project(s)
 
-![show](/Resources/dotnetTools.gif)
+![show](/Resources/Readme/DotnetTools.gif)
 
 ## Credits
 
