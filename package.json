@@ -13,7 +13,7 @@
         "type": "git",
         "url": "https://github.com/kineticSnippet/DotnetTools"
     },
-    "license": "private",
+    "license": "MIT",
     "engines": {
         "vscode": "^1.80.0"
     },
@@ -24,6 +24,9 @@
         "workspaceContains:**/*.{csproj,fsproj,cs,fs,sln}",
         "onLanguage:csharp",
         "onLanguage:fsharp"
+    ],
+    "extensionDependencies": [
+        "kineticSnippet.add-items"
     ],
     "author": {
         "name": "kineticSnippet",
