@@ -7,6 +7,7 @@ import { NugetPackage } from "../../../SideView/Dotnet/TreeItems/NugetPackage";
 import { DotnetProject } from "../../../SideView/Dotnet/TreeItems/DotnetProject";
 import { DotnetManager } from "../../../ProjectManager/ProjectManager";
 import { logger } from "../../../extension";
+import { dotnetCommands } from "../../../GlobalConst";
 
 export class DotnetProjectsProvider
     implements
@@ -60,7 +61,7 @@ export class DotnetProjectsProvider
                             path.basename(reference.fsPath, ".csproj"),
                             vscode.TreeItemCollapsibleState.None,
                             {
-                                command: "sharp-tools.openProject",
+                                command: dotnetCommands.openProject,
                                 title: "Open project",
                                 arguments: [reference],
                             },

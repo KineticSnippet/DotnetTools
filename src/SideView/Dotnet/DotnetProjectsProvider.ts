@@ -7,7 +7,7 @@ import { NugetStack } from "./TreeItems/NugetStack";
 import { NugetPackage } from "./TreeItems/NugetPackage";
 import { DotnetProject } from "./TreeItems/DotnetProject";
 import { logger } from "../../extension";
-import { extension } from "../../GlobalConst";
+import { dotnetCommands } from "../../GlobalConst";
 
 export class DotnetProjectsProvider
     implements
@@ -114,9 +114,10 @@ export class DotnetProjectsProvider
      * If there are no projects in the workspace, the Promise resolves to an empty array.
      * @returns A Promise that resolves to an array of DotnetProject objects representing the .NET projects in the current workspace.
      */
-    getProjects(): Promise<DotnetProject[]> {
+    async getProjects(): Promise<DotnetProject[]> {
         // Check how many projects are in the workspace
-        return this.workspaceDotnetProjects.then((projects) => {
+        this.workspaceDotnetProjects = DotnetManager.findDotnetProjects();
+        return this.workspaceDotnetProjects.then(async (projects) => {
             if (projects.length === 0) {
                 return Promise.resolve([]);
             } else {
@@ -127,7 +128,7 @@ export class DotnetProjectsProvider
                             path.basename(project.fsPath, ".csproj"),
                             vscode.TreeItemCollapsibleState.Collapsed,
                             {
-                                command: `${extension.id}.openProject`,
+                                command: dotnetCommands.openProject,
                                 title: "Open project",
                                 arguments: [project],
                             },

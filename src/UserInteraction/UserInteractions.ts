@@ -98,10 +98,7 @@ export class UserInteractions {
         });
         return uriMap;
     }
-    static async selectAVersion(
-        versions: string[],
-    )
-    {
+    static async selectAVersion(versions: string[]) {
         let selectedVersion = await vscode.window.showQuickPick(versions, {
             placeHolder: `Select a version to install`,
             canPickMany: false,

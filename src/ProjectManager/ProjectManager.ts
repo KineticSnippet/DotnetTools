@@ -21,6 +21,7 @@ export class DotnetManager {
      * @returns A promise that resolves to an array of Uri objects, can be empty
      */
     static async findDotnetProjects(): Promise<Uri[]> {
+        logger.logInfo(`Searching for projects in the current workspace`);
         // Search for projects in the current directory
         // Projects are identified by the presence of a .csproj file or a .fsproj file
         // If a project is found, add it to the list of projects
@@ -35,6 +36,7 @@ export class DotnetManager {
         for (let fsprojFile of await fsprojFiles) {
             projects.push(fsprojFile);
         }
+        logger.logInfo(`Found ${projects.length} projects`);
         return projects;
     }
 
