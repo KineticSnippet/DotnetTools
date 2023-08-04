@@ -196,7 +196,7 @@
                     "name": "Dotnet Projects"
                 },
                 {
-                    "id": "dotnet-tools.nodeDependencies",
+                    "id": "dotnet-tools.nugetPackages",
                     "name": "Node Dependencies"
                 }
             ]

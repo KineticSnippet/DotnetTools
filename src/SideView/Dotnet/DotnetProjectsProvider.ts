@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-// import * as fs from "fs";
 import * as path from "path";
 import { DotnetManager } from "../../ProjectManager/ProjectManager";
 import { ProjectStack } from "./TreeItems/ProjectStack";
@@ -61,7 +60,7 @@ export class DotnetProjectsProvider
                             path.basename(reference.fsPath, ".csproj"),
                             vscode.TreeItemCollapsibleState.None,
                             {
-                                command: "sharp-tools.openProject",
+                                command: dotnetCommands.openProject,
                                 title: "Open project",
                                 arguments: [reference],
                             },

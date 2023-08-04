@@ -327,7 +327,7 @@ export class DotnetManager {
             localPaths: /(\.\.\/)+/g,
             itemGroupRegex: /<ItemGroup\s*>([\s\S]*?)<\/ItemGroup>/gs,
             nugetPackage:
-                /<PackageReference\s+Include\s*=\s*"([\w\.]+)"\s+Version\s*=\s*"([\d\.]+)"(.*?)\/?>/gs,
+                /<PackageReference\s+Include\s*=\s*"([\w\.]+)"\s+Version\s*=\s*"([\d\w\.\-]+)"(.*?)\/?>/gs,
         };
         let match;
         while ((match = regex.itemGroupRegex.exec(projectFileString))) {

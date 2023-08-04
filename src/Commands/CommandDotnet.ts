@@ -12,12 +12,6 @@ import {
 } from "../GlobalConst";
 import { logger } from "../extension";
 
-/**
- * CommandDotnet: Description of the function.
- *
- * @param paramName paramDescription
- */
-
 // listener for dotnet project changes
 const watcher = vscode.workspace.createFileSystemWatcher("**/*.csproj");
 

@@ -1,9 +1,9 @@
 import * as vscode from "vscode";
 import * as fs from "fs";
 import * as path from "path";
-import { logger } from "../extension";
+import { logger } from "../../extension";
 
-export class NodeDependenciesProvider
+export class NodeProjectProvider
     implements vscode.TreeDataProvider<Dependency>
 {
     constructor(private projectPath: string) {
@@ -132,7 +132,25 @@ class Dependency extends vscode.TreeItem {
     }
 
     override iconPath = {
-        light: path.join(__filename, "..", "..", "resources", "viewLogo.png"),
-        dark: path.join(__filename, "..", "..", "resources", "viewLogo.png"),
+        light: path.join(
+            __filename,
+            "..",
+            "..",
+            "..",
+            "..",
+            "Resources",
+            "Icons",
+            "Node.png"
+        ),
+        dark: path.join(
+            __filename,
+            "..",
+            "..",
+            "..",
+            "..",
+            "Resources",
+            "Icons",
+            "Node.png"
+        ),
     };
 }
