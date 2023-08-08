@@ -8,7 +8,7 @@
         "C#",
         "dotnet"
     ],
-    "icon": "Resources/Icons/Thunder.png",
+    "icon": "/Resources/Icons/Thunder.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/kineticSnippet/DotnetTools"
@@ -71,8 +71,8 @@
                 "category": "Dotnet Tools",
                 "title": "Refresh Nuget Packages",
                 "icon": {
-                    "light": "resources/light/refresh.png",
-                    "dark": "resources/dark/refresh.png"
+                    "light": "/Resources/Light/Refresh.png",
+                    "dark": "/Resources/Dark/Refresh.png"
                 }
             },
             {
@@ -185,7 +185,7 @@
                 {
                     "id": "dotnet-tools",
                     "title": "Dotnet Tools",
-                    "icon": "Resources/Icons/thunder.png"
+                    "icon": "/Resources/Icons/Thunder.png"
                 }
             ]
         },
