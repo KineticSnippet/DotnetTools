@@ -283,6 +283,10 @@ export class DotnetManager {
         return new Promise(async (resolve, reject) => {
             try {
                 let projectArray = await projects;
+                if (projectArray.length === 0) {
+                    vscode.window.showErrorMessage("No project(s) were found!");
+                    throw new Error("No project(s) were found");
+                }
                 let userSelection = await vscode.window.showQuickPick(
                     projectArray.map((project) => {
                         return {
@@ -403,11 +407,11 @@ export class DotnetManager {
                 title: `Adding Nuget Package to ${projectName}`,
                 validateInput: (value) => {
                     // regex for the input not to be empty, not special characters and be at lest 4 characters long
-                    const regex = /^[\w\d]{4,}$/g;
+                    const regex = /^.{4,}$/g;
                     if (regex.test(value)) {
                         return null;
                     }
-                    return "Please enter at least 4 characters, and no special characters";
+                    return "Please enter at least 4 characters";
                 },
             });
             if (packageName === undefined) {
