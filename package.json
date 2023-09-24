@@ -38,33 +38,33 @@
         "commands": [
             {
                 "command": "dotnet-tools.manageReferences",
-                "title": "Manage References",
-                "category": "Dotnet Tools"
+                "category": "Dotnet Tools",
+                "title": "%commands.manageReferences%"
             },
             {
                 "command": "dotnet-tools.buildProject",
                 "category": "Dotnet Tools",
-                "title": "Build Project"
+                "title": "%commands.buildProject%"
             },
             {
                 "command": "dotnet-tools.runProject",
                 "category": "Dotnet Tools",
-                "title": "Run Project"
+                "title": "%commands.runProjects%"
             },
             {
                 "command": "dotnet-tools.watchAndRunProject",
                 "category": "Dotnet Tools",
-                "title": "Watch Run Project"
+                "title": "%commands.watchAndRunProjects%"
             },
             {
                 "command": "dotnet-tools.restoreProject",
                 "category": "Dotnet Tools",
-                "title": "Restore Project"
+                "title": "%commands.restore%"
             },
             {
                 "command": "dotnet-tools.openProject",
                 "category": "Dotnet Tools",
-                "title": "Open Project"
+                "title": "%commands.openProject%"
             },
             {
                 "command": "dotnet-tools.refreshDotnetTreeView",
@@ -78,12 +78,12 @@
             {
                 "command": "dotnet-tools.addNugetPackage",
                 "category": "Dotnet Tools",
-                "title": "Add Nuget Package"
+                "title": "%commands.addNuget%"
             },
             {
                 "command": "dotnet-tools.removeNugetPackage",
                 "category": "Dotnet Tools",
-                "title": "Remove Nuget Package"
+                "title": "%commands.removeNuget%"
             }
         ],
         "menus": {
@@ -171,7 +171,11 @@
         "viewsWelcome": [
             {
                 "view": "dotnet-tools.dotnetProjects",
-                "contents": "Welcome to the Nuget Packages View!\nNo C# or F# project was found in the workspace.\n\nTo get started, open a folder or workspace that contains a C# or F# project. Or create a new one.\n[Open Folder](command:workbench.action.files.openFolder) \n "
+                "contents": "%viewsWelcome.dotnetProject.message%"
+            },
+            {
+                "view": "dotnet-tools.nodeDependencies",
+                "contents": "%viewsWelcome.nodeDependencies.message%"
             }
         ],
         "submenus": [
@@ -196,7 +200,7 @@
                     "name": "Dotnet Projects"
                 },
                 {
-                    "id": "dotnet-tools.nugetPackages",
+                    "id": "dotnet-tools.nodeDependencies",
                     "name": "Node Dependencies"
                 }
             ]

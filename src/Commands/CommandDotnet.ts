@@ -217,7 +217,6 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
         dotnetProjectsTreeView.refreshDotnetTree();
     });
 
-    logger.logInfo("Extension activated");
     context.subscriptions.push(refreshNugetTreeView);
     context.subscriptions.push(
         manageReferences,
