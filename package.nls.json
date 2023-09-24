@@ -13,5 +13,5 @@
     "commands.removeNuget": "Remove Nuget Package",
 
     "viewsWelcome.dotnetProject.message": "Welcome to the Nuget Packages View!\nNo C# or F# project was found in the workspace.\n\nTo get started, open a folder or workspace that contains a C# or F# project. Or create a new one.\n[Open Folder](command:workbench.action.files.openFolder) \n ",
-    "viewsWelcome.nodeDependencies.message": "Welcome to the Node Decencies view. No `package.json` file was found on this workspace! Please open up a folder with a node project\n[Open Folder](command:workbench.action.files.openFolder) \n "
+    "viewsWelcome.nodeDependencies.message": "Welcome to the Node Decencies view. No `package.json` file was found on this workspace! Please open up a folder with a node project.\n[Open Folder](command:workbench.action.files.openFolder) \n "
 }

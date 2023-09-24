@@ -1,0 +1,17 @@
+{
+    "name": "Dotnet Tools",
+    "id": "dotnet-tools",
+
+    "commands.manageReferences": "Administrar referencias",
+    "commands.buildProject": "Compilar proyecto",
+    "commands.runProjects": "Ejecutar proyecto",
+    "commands.watchAndRunProjects": "Ejecutar proyecto en modo 'watch'",
+    "commands.restore": "Restaurar proyecto",
+    "commands.openProject": "Abrir proyecto",
+
+    "commands.addNuget": "Agregar paquete Nuget",
+    "commands.removeNuget": "Remover paquete Nuget",
+
+    "viewsWelcome.dotnetProject.message": "Bienvenido a la vista de paquetes Nuget!\nNo se encontró ningún proyecto de C# o F# en el espacio de trabajo.\n\nPara comenzar, abra una carpeta o espacio de trabajo que contenga un proyecto de C# o F#. O crear uno nuevo.\n[Abrir folder](command:workbench.action.files.openFolder) \n ",
+    "viewsWelcome.nodeDependencies.message": "Bienvenido a la vista Node Decencies. ¡No se encontró ningún archivo `package.json` en este espacio de trabajo! Abra una carpeta con un proyecto de Node.\n[Open Folder](command:workbench.action.files.openFolder) \n "
+}
