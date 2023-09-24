@@ -2,6 +2,12 @@
 
 Any important change to this extension will be listed here.
 
+## [1.4.0] - 2023-09-24
+
+- Added support for localizations
+  - Extension localized to Spanish
+- Fixed wrong name for `Node Dependencies` in `package.json` and other dependent files.
+
 ## [1.3.0] - 2023-09-02
 
 - Fixed the nuget package selector did not accept special characters, which is allow for nuget names.
