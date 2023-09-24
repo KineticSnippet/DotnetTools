@@ -2,7 +2,7 @@
 
 Any important change to this extension will be listed here.
 
-## [1.4.0] - 2023-09-24
+## [1.5.0] - 2023-09-24
 
 - Added support for localizations
   - Extension localized to Spanish
