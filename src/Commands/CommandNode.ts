@@ -21,7 +21,7 @@ export async function registerNodeCommands() {
     const nodeProjectTreeView = new NodeProjectProvider(folder);
 
     vscode.window.registerTreeDataProvider(
-        treeViewNames.nugetPackages,
+        treeViewNames.nodeDecencies,
         nodeProjectTreeView
     );
 

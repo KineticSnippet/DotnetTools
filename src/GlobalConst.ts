@@ -37,7 +37,7 @@ export const dotnetCommands = {
 
 export const treeViewNames = {
     dotnetProjects: `${extension.id}.dotnetProjects`,
-    nugetPackages: `${extension.id}.nugetPackages`,
+    nodeDecencies: `${extension.id}.nodeDependencies`,
 };
 
 export const dotnetTreeViewCommands = {
