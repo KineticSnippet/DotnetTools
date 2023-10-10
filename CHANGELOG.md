@@ -2,6 +2,15 @@
 
 Any important change to this extension will be listed here.
 
+## [1.6.0] - 2023-xx-xx
+
+### On going
+
+TODO: Add support to sln files
+TODO: Add settings to automatically add `csproj`s to `sln`
+TODO: Add tree view shortcut in ctx menu (explorer)
+TODO: Add missing sub-menus to the explorer ctx
+
 ## [1.5.0] - 2023-09-24
 
 - Added support for localizations

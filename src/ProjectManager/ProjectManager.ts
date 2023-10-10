@@ -39,6 +39,18 @@ export class DotnetManager {
         logger.logInfo(`Found ${projects.length} projects`);
         return projects;
     }
+    /**
+     * Find all dotnet projects in the current workspace
+     * @returns A promise that resolves to an array of Uri objects, can be empty
+     */
+    static async findDotnetSolutions(): Promise<Uri[]> {
+        logger.logInfo(`Searching for solution files in the current workspace`);
+
+        let solutions = await vscode.workspace.findFiles("**/*.sln");
+
+        logger.logInfo(`Found ${solutions.length} projects`);
+        return solutions;
+    }
 
     /**
      * This function adds one or more references to a project
@@ -319,6 +331,45 @@ export class DotnetManager {
             }
         });
     }
+    public static selectSolution(projects: Promise<Uri[]>): Promise<Uri> {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let projectArray = await projects;
+                if (projectArray.length === 0) {
+                    vscode.window.showErrorMessage(
+                        "No solution file(s) were found!"
+                    );
+                    throw new Error("No solution files(s) were found");
+                }
+                let userSelection = await vscode.window.showQuickPick(
+                    projectArray.map((project) => {
+                        return {
+                            label: this.getFileNameWithoutExtension(
+                                project.fsPath
+                            ),
+                            detail: project.fsPath,
+                            description: "sln",
+                        };
+                    }),
+                    {
+                        placeHolder: "Select a solution",
+                        canPickMany: false,
+                        matchOnDescription: true,
+                        matchOnDetail: true,
+                        ignoreFocusOut: true,
+                    }
+                );
+                if (userSelection !== undefined) {
+                    resolve(Uri.file(userSelection.detail));
+                }
+            } catch (
+                /* istanbul ignore next */
+                error
+            ) {
+                reject(error);
+            }
+        });
+    }
 
     public static async getNugetPackages(
         project: vscode.Uri
@@ -529,6 +580,37 @@ export class DotnetManager {
                 logger.logEnd();
             }
         }
+    }
+    public static async addProjectToSolution(solution: Uri, addAll = false) {
+        // Add one or more project files to a solution file
+        // One: get the target sln file
+        // Two: get the project(s) to add
+        // Three: Run the command to add the necessary projects
+
+        // let solutionName = path.basename(solution.fsPath, ".sln");
+        let solutionPath = path.dirname(solution.fsPath);
+
+        const availableProjects = await DotnetManager.findDotnetProjects();
+        let projectMap = DotnetManager.mapProjects(availableProjects);
+
+        let projectsToAdd: Uri[];
+
+        if (addAll === false) {
+            let selectedProjects = await UserInteractions.selectMultipleProject(
+                projectMap
+            );
+            projectsToAdd = selectedProjects.selectedProjects;
+        } else {
+            projectsToAdd = availableProjects;
+        }
+
+        // Change the active directory to the solution file dir
+
+        let command = `dotnet sln add `;
+        terminal.sendCommands(`cd ${solutionPath}`);
+        projectsToAdd.forEach((element) => {
+            terminal.sendCommands(`${command} ${element.fsPath}`);
+        });
     }
     public static async removeNugetPackage(project: Uri, nugetName?: string[]) {
         // if the project is a NugetPackage, simply run the remove command

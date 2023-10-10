@@ -33,6 +33,8 @@ export const dotnetCommands = {
     openProject: `${extension.id}.openProject`,
     addNugetPackage: `${extension.id}.addNugetPackage`,
     removeNugetPackage: `${extension.id}.removeNugetPackage`,
+    addProjectToSln: `${extension.id}.addProjectToSolution`,
+    addAllProjectsToSln: `${extension.id}.addAllProjectsToSolution`,
 };
 
 export const treeViewNames = {
