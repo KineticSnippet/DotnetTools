@@ -11,7 +11,7 @@ Any important change to this extension will be listed here.
 ## [1.3.0] - 2023-09-02
 
 - Fixed the nuget package selector did not accept special characters, which is allow for nuget names.
-- Fixed: Commands where not wrapped in a try-catch block, so errors where thrown to the user, not to the logger class.
+- Fixed: Commands were not wrapped in a try-catch block, so errors were thrown to the user, not to the logger class.
 
 ## [1.2.0] - 2023-08-03
 
