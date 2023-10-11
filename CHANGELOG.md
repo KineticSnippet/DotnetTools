@@ -2,14 +2,11 @@
 
 Any important change to this extension will be listed here.
 
-## [1.6.0] - 2023-xx-xx
+## [1.6.0] - 2023-10-11
 
-### On going
-
-TODO: Add support to sln files
-TODO: Add settings to automatically add `csproj`s to `sln`
-TODO: Add tree view shortcut in ctx menu (explorer)
-TODO: Add missing sub-menus to the explorer ctx
+- Added sln add solution
+- Added: Add all the `csproj` to the current solution
+- Added missing Nuget context menu for `csproj` files
 
 ## [1.5.0] - 2023-09-24
 
