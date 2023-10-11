@@ -37,6 +37,16 @@
     "contributes": {
         "commands": [
             {
+                "command": "dotnet-tools.addProjectToSolution",
+                "category": "Dotnet Tools (Beta)",
+                "title": "Add project to solution"
+            },
+            {
+                "command": "dotnet-tools.addAllProjectsToSolution",
+                "category": "Dotnet Tools (Beta)",
+                "title": "Add all projects to solution"
+            },
+            {
                 "command": "dotnet-tools.manageReferences",
                 "category": "Dotnet Tools",
                 "title": "%commands.manageReferences%"
@@ -92,6 +102,11 @@
                     "submenu": "dotnet-tools",
                     "group": ".dotnet-tools",
                     "when": "resourceExtname == .csproj || resourceExtname == .fsproj"
+                },
+                {
+                    "submenu": "dotnet-tools-sln",
+                    "group": ".dotnet-tools",
+                    "when": "resourceExtname == .sln"
                 }
             ],
             "editor/context": [
@@ -158,6 +173,24 @@
                 {
                     "command": "dotnet-tools.restoreProject",
                     "group": "build actions"
+                },
+                {
+                    "command": "dotnet-tools.addNugetPackage",
+                    "group": "nuget"
+                },
+                {
+                    "command": "dotnet-tools.removeNugetPackage",
+                    "group": "nuget"
+                }
+            ],
+            "dotnet-tools-sln": [
+                {
+                    "command": "dotnet-tools.addProjectToSolution",
+                    "group": "solutions"
+                },
+                {
+                    "command": "dotnet-tools.addAllProjectsToSolution",
+                    "group": "solutions"
                 }
             ],
             "view/title": [
@@ -181,6 +214,10 @@
         "submenus": [
             {
                 "id": "dotnet-tools",
+                "label": "Dotnet Tools"
+            },
+            {
+                "id": "dotnet-tools-sln",
                 "label": "Dotnet Tools"
             }
         ],

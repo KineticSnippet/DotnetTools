@@ -16,12 +16,11 @@ import { logger } from "../extension";
 const watcher = vscode.workspace.createFileSystemWatcher("**/*.csproj");
 
 export function registerDotnetCommands(context: vscode.ExtensionContext) {
-    let manageReferences = vscode.commands.registerCommand(
+    // Add or remove references from a csproj file
+    const manageReferences = vscode.commands.registerCommand(
         dotnetCommands.manageReferences,
         async (clicker: vscode.Uri | DotnetProject | ProjectStack) => {
-            logger.logInfo(
-                `Command ${dotnetCommands.manageReferences}.manageReferences called`
-            );
+            logger.logInfo(`Command ${dotnetCommands.manageReferences} called`);
             if (clicker === undefined) {
                 const project = DotnetManager.findDotnetProjects();
                 clicker = await DotnetManager.selectProject(project);
@@ -33,13 +32,13 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
             await DotnetManager.manageReferences(clicker);
         }
     );
-    let buildProject = vscode.commands.registerCommand(
+
+    // Run the command `dotnet build` in a selected project
+    const buildProject = vscode.commands.registerCommand(
         dotnetCommands.buildProject,
         async (clicker: vscode.Uri | DotnetProject) => {
             try {
-                logger.logInfo(
-                    `Command ${dotnetCommands.buildProject}.buildProject called`
-                );
+                logger.logInfo(`Command ${dotnetCommands.buildProject} called`);
                 const project = DotnetManager.findDotnetProjects();
                 if (clicker === undefined) {
                     clicker = await DotnetManager.selectProject(project);
@@ -55,13 +54,13 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
             }
         }
     );
-    let runProject = vscode.commands.registerCommand(
+
+    // Run the selected project
+    const runProject = vscode.commands.registerCommand(
         dotnetCommands.runProject,
         async (clicker: vscode.Uri | DotnetProject) => {
             try {
-                logger.logInfo(
-                    `Command ${dotnetCommands.runProject}.runProject called`
-                );
+                logger.logInfo(`Command ${dotnetCommands.runProject} called`);
                 const project = DotnetManager.findDotnetProjects();
                 if (clicker === undefined) {
                     clicker = await DotnetManager.selectProject(project);
@@ -77,12 +76,14 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
             }
         }
     );
-    let watchAndRunProject = vscode.commands.registerCommand(
+
+    // Run the command `dotnet watch run` in a selected project
+    const watchAndRunProject = vscode.commands.registerCommand(
         dotnetCommands.watchAndRunProject,
         async (clicker: vscode.Uri | DotnetProject) => {
             try {
                 logger.logInfo(
-                    `Command ${dotnetCommands.watchAndRunProject}.watchAndRunProject called`
+                    `Command ${dotnetCommands.watchAndRunProject} called`
                 );
                 const project = DotnetManager.findDotnetProjects();
                 if (clicker === undefined) {
@@ -99,12 +100,14 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
             }
         }
     );
-    let restoreProject = vscode.commands.registerCommand(
+
+    // Restore a project
+    const restoreProject = vscode.commands.registerCommand(
         dotnetCommands.restoreProject,
         async (clicker: vscode.Uri | DotnetProject) => {
             try {
                 logger.logInfo(
-                    `Command ${dotnetCommands.restoreProject}.restoreProject called`
+                    `Command ${dotnetCommands.restoreProject} called`
                 );
                 const project = DotnetManager.findDotnetProjects();
                 if (clicker === undefined) {
@@ -123,13 +126,13 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
             }
         }
     );
-    let openProject = vscode.commands.registerCommand(
+
+    // Open a project as text
+    const openProject = vscode.commands.registerCommand(
         dotnetCommands.openProject,
         async (clicker: vscode.Uri | DotnetProject) => {
             try {
-                logger.logInfo(
-                    `Command ${dotnetCommands.openProject}.openProject called`
-                );
+                logger.logInfo(`Command ${dotnetCommands.openProject} called`);
                 if (clicker === undefined) {
                     const project = DotnetManager.findDotnetProjects();
                     clicker = await DotnetManager.selectProject(project);
@@ -144,12 +147,14 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
             }
         }
     );
-    let addNugetPackages = vscode.commands.registerCommand(
+
+    // Add nuget package(s) to a selected project
+    const addNugetPackages = vscode.commands.registerCommand(
         dotnetCommands.addNugetPackage,
-        async (clicker: NugetStack | DotnetProject) => {
+        async (clicker: NugetStack | DotnetProject | vscode.Uri) => {
             try {
                 logger.logInfo(
-                    `Command ${dotnetCommands.addNugetPackage}.addNugetPackage called`
+                    `Command ${dotnetCommands.addNugetPackage} called`
                 );
                 let projectToAddPackage: vscode.Uri | undefined;
                 if (clicker === undefined) {
@@ -157,10 +162,18 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
                         DotnetManager.findDotnetProjects()
                     );
                 } else {
-                    projectToAddPackage = clicker.project;
+                    if (clicker instanceof DotnetProject) {
+                        projectToAddPackage = clicker.project;
+                    } else if (clicker instanceof vscode.Uri) {
+                        projectToAddPackage = clicker;
+                    } else {
+                        projectToAddPackage = clicker.project;
+                    }
                 }
+                logger.logInfo(
+                    `Managing nuget packages of ${projectToAddPackage.fsPath}`
+                );
                 DotnetManager.addNugetPackage(projectToAddPackage);
-                logger.logInfo("Managing nuget packages");
             } catch (error) {
                 if (error instanceof Error) {
                     logger.logError(error.message);
@@ -168,20 +181,27 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
             }
         }
     );
-    let removeNugetPackages = vscode.commands.registerCommand(
+
+    // Remove one or more nuget(s) packages from a project
+    const removeNugetPackages = vscode.commands.registerCommand(
         dotnetCommands.removeNugetPackage,
-        async (clicker: NugetPackage | NugetStack) => {
+        async (clicker: NugetPackage | NugetStack | vscode.Uri) => {
             try {
                 logger.logInfo(
-                    `Command ${dotnetCommands.removeNugetPackage}.removeNugetPackage called`
+                    `Command ${dotnetCommands.removeNugetPackage} called`
                 );
+                let projectToRemove: vscode.Uri;
                 if (clicker instanceof NugetPackage) {
                     // if we receive a NugetPackage, we know which project to remove the package from
                     DotnetManager.removeNugetPackage(clicker.project, [
                         clicker.label,
                     ]);
                 } else if (clicker instanceof NugetStack) {
-                    DotnetManager.removeNugetPackage(clicker.project);
+                    projectToRemove = clicker.project;
+                    DotnetManager.removeNugetPackage(projectToRemove);
+                } else if (clicker instanceof vscode.Uri) {
+                    projectToRemove = clicker;
+                    DotnetManager.removeNugetPackage(projectToRemove);
                 } else {
                     const projectToRemovePackage =
                         await DotnetManager.selectProject(
@@ -194,6 +214,38 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
                     logger.logError(error.message);
                 }
             }
+        }
+    );
+
+    // Add a project to a sln file
+    const addProjectToSolution = vscode.commands.registerCommand(
+        dotnetCommands.addProjectToSln,
+        async (clicker: vscode.Uri) => {
+            try {
+                logger.logInfo(
+                    `Command ${dotnetCommands.addProjectToSln} called`
+                );
+                if (clicker === undefined) {
+                    const solutions = DotnetManager.findDotnetSolutions();
+                    clicker = await DotnetManager.selectSolution(solutions);
+                }
+                DotnetManager.addProjectToSolution(clicker);
+            } catch (error) {}
+        }
+    ); // Add a project to a sln file
+    const addAllProjectsToSolution = vscode.commands.registerCommand(
+        dotnetCommands.addAllProjectsToSln,
+        async (clicker: vscode.Uri) => {
+            try {
+                logger.logInfo(
+                    `Command ${dotnetCommands.addProjectToSln} called`
+                );
+                if (clicker === undefined) {
+                    const solutions = DotnetManager.findDotnetSolutions();
+                    clicker = await DotnetManager.selectSolution(solutions);
+                }
+                DotnetManager.addProjectToSolution(clicker, true);
+            } catch (error) {}
         }
     );
 
@@ -226,6 +278,8 @@ export function registerDotnetCommands(context: vscode.ExtensionContext) {
         restoreProject,
         openProject,
         addNugetPackages,
-        removeNugetPackages
+        removeNugetPackages,
+        addProjectToSolution,
+        addAllProjectsToSolution
     );
 }

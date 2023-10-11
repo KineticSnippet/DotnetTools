@@ -2,6 +2,12 @@
 
 Any important change to this extension will be listed here.
 
+## [1.6.0] - 2023-10-11
+
+- Added sln add solution
+- Added: Add all the `csproj` to the current solution
+- Added missing Nuget context menu for `csproj` files
+
 ## [1.5.0] - 2023-09-24
 
 - Added support for localizations

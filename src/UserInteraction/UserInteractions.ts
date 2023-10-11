@@ -59,7 +59,7 @@ export class UserInteractions {
 
         // show the quick pick
         let userSelections = await vscode.window.showQuickPick(allProjects, {
-            placeHolder: `Select a project to add a reference to`,
+            placeHolder: `Select the project you want to reference`,
             canPickMany: true,
             matchOnDescription: true,
             matchOnDetail: true,
