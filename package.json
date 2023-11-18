@@ -29,9 +29,9 @@
         "kineticSnippet.add-items"
     ],
     "author": {
-        "name": "kineticSnippet",
-        "email": "kineticSnippet@outlook.com",
-        "url": "https://github.com/kineticSnippet"
+        "name": "theFish2171",
+        "email": "theFish2171@outlook.com",
+        "url": "https://github.com/theFish2171"
     },
     "main": "./out/extension.js",
     "contributes": {
