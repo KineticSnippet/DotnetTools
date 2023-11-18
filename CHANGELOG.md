@@ -2,6 +2,10 @@
 
 Any important change to this extension will be listed here.
 
+## [1.6.1] - 2023-11-17
+
+- Security update
+
 ## [1.6.0] - 2023-10-11
 
 - Added sln add solution
