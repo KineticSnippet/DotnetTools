@@ -11,7 +11,7 @@
     "icon": "/Resources/Icons/Thunder.png",
     "repository": {
         "type": "git",
-        "url": "https://github.com/kineticSnippet/DotnetTools"
+        "url": "https://github.com/theFish2171/DotnetTools"
     },
     "license": "MIT",
     "engines": {
