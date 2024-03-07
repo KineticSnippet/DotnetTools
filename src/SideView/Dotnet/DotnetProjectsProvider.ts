@@ -6,7 +6,7 @@ import { NugetStack } from "./TreeItems/NugetStack";
 import { NugetPackage } from "./TreeItems/NugetPackage";
 import { DotnetProject } from "./TreeItems/DotnetProject";
 import { logger } from "../../extension";
-import { dotnetCommands } from "../../GlobalConst";
+import { dotnetProjectCommands } from "../../GlobalConst";
 
 export class DotnetProjectsProvider
     implements
@@ -60,7 +60,7 @@ export class DotnetProjectsProvider
                             path.basename(reference.fsPath, ".csproj"),
                             vscode.TreeItemCollapsibleState.None,
                             {
-                                command: dotnetCommands.openProject,
+                                command: dotnetProjectCommands.openProject,
                                 title: "Open project",
                                 arguments: [reference],
                             },
@@ -127,7 +127,7 @@ export class DotnetProjectsProvider
                             path.basename(project.fsPath, ".csproj"),
                             vscode.TreeItemCollapsibleState.Collapsed,
                             {
-                                command: dotnetCommands.openProject,
+                                command: dotnetProjectCommands.openProject,
                                 title: "Open project",
                                 arguments: [project],
                             },

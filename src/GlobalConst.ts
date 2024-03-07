@@ -24,7 +24,12 @@ export const extension = {
     name: `.NET Tools`,
 };
 
-export const dotnetCommands = {
+export const dotnetSolutionCommands = {
+    addSolutionFile: `${extension.id}.addSolutionFile`,
+    addProject: `${extension.id}.addProject`,
+};
+
+export const dotnetProjectCommands = {
     manageReferences: `${extension.id}.manageReferences`,
     buildProject: `${extension.id}.buildProject`,
     runProject: `${extension.id}.runProject`,

@@ -94,6 +94,16 @@
                 "command": "dotnet-tools.removeNugetPackage",
                 "category": "Dotnet Tools",
                 "title": "%commands.removeNuget%"
+            },
+            {
+                "command": "dotnet-tools.addSolutionFile",
+                "category": "Dotnet Tools",
+                "title": "Add Solution File"
+            },
+            {
+                "command": "dotnet-tools.addProject",
+                "category": "Dotnet Tools",
+                "title": "Add Project..."
             }
         ],
         "menus": {
@@ -107,6 +117,11 @@
                     "submenu": "dotnet-tools-sln",
                     "group": ".dotnet-tools",
                     "when": "resourceExtname == .sln"
+                },
+                {
+                    "submenu": "dotnet-tools.addProject",
+                    "group": "dotnet-tools",
+                    "when": "explorerResourceIsFolder"
                 }
             ],
             "editor/context": [
@@ -193,6 +208,16 @@
                     "group": "solutions"
                 }
             ],
+            "dotnet-tools.addProject": [
+                {
+                    "command": "dotnet-tools.addSolutionFile",
+                    "group": "dotnet-tools"
+                },
+                {
+                    "command": "dotnet-tools.addProject",
+                    "group": "dotnet-tools"
+                }
+            ],
             "view/title": [
                 {
                     "command": "dotnet-tools.refreshDotnetTreeView",
@@ -218,6 +243,10 @@
             },
             {
                 "id": "dotnet-tools-sln",
+                "label": "Dotnet Tools"
+            },
+            {
+                "id": "dotnet-tools.addProject",
                 "label": "Dotnet Tools"
             }
         ],

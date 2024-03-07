@@ -13,6 +13,68 @@ import { logger, terminal } from "../extension";
  * @class
  */
 export class DotnetManager {
+    static async createNewSolution(clicker: Uri | undefined) {
+        let location = "";
+        logger.logInfo(`Location: ${clicker?.fsPath}`);
+
+        if (clicker === undefined) {
+            const folders = vscode.workspace.workspaceFolders;
+            if (folders === undefined) {
+                logger.logError("No workspace folders found");
+                vscode.window.showErrorMessage("No workspace folders found");
+                throw new Error("No workspace folders found");
+            }
+            if (folders.length === 1) {
+                location = folders[0].uri.fsPath;
+            } else {
+                let folder = await vscode.window.showQuickPick(
+                    folders.map((folder) => {
+                        return {
+                            label: folder.name,
+                            detail: folder.uri.fsPath,
+                        };
+                    }),
+                    {
+                        placeHolder:
+                            "Select a folder to create the solution in",
+                        canPickMany: false,
+                        matchOnDetail: true,
+                        matchOnDescription: true,
+                        ignoreFocusOut: true,
+                    }
+                );
+                if (folder === undefined) {
+                    vscode.window.showErrorMessage("No folder selected");
+                    throw new Error("No folder selected");
+                }
+                location = folder.detail;
+            }
+        } else {
+            location = clicker.fsPath;
+        }
+
+        // Ask the user for the solution name, use the location as the default value
+        let folderName = path.basename(location);
+        vscode.window
+            .showInputBox({
+                placeHolder: "Enter the solution name",
+                prompt: "Press enter when ready",
+                value: folderName,
+                ignoreFocusOut: true,
+            })
+            .then((solutionName) => {
+                if (solutionName === undefined) {
+                    vscode.window.showErrorMessage("No solution name provided");
+                    throw new Error("No solution name provided");
+                }
+                // Run the dotnet new sln command
+                terminal.sendCommands(
+                    `cd "${location}"`,
+                    `dotnet new sln -n ${solutionName}`
+                );
+            });
+    }
+
     static openProject(clicker: Uri) {
         vscode.window.showTextDocument(clicker);
     }
