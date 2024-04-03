@@ -3,7 +3,7 @@
     "displayName": ".NET Tools",
     "publisher": "kineticSnippet",
     "description": "Dotnet tools for dotnet developers",
-    "version": "1.6.3",
+    "version": "1.6.5",
     "keywords": [
         "C#",
         "dotnet"
