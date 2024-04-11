@@ -2,6 +2,10 @@
 
 Any important change to this extension will be listed here.
 
+## [1.6.5] - 2024-04-02 : Security update
+
+- updated packages
+
 ## [1.6.2] - 2024-02-18 : Security update
 
 - Updated packages.
